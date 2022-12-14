@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Affiche ville</title>
+    <style>
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th /* Mettre une bordure sur les td ET les th */
+        {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <caption>Liste des villes</caption>
+
+        <tr>
+            <th>Code INSEE</th>
+            <th>Commune</th>
+            <th>Code Postal</th>
+            <th>Libelle Acheminement</th>
+            <th>Ligne 5</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+
+        </tr>
+        <th:block th:each="ville : ${villes}">
+            <tr>
+                <td th:text="${ville.getCodeCommune()}"></td>
+                <td th:text="${ville.getNomCommune()}"></td>
+                <td th:text="${ville.getCodePostal()}"></td>
+                <td th:text="${ville.getLibelleAcheminement()}"></td>
+                <td th:text="${ville.getLigne()}"></td>
+                <td th:text="${ville.getLongitude()}"></td>
+                <td th:text="${ville.getLatitude()}"></td>
+            </tr>
+        </th:block>
+    </table>
+
+</div>
+</body>
+</html>

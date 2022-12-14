@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h1>Villes Distance</h1>
+<p>
+<form action="distance" method="post">
+    <select name="ville1">
+        <th:block th:each="ville : ${villes}">
+            <option th:value="${ville.getCodeCommune()}" th:text="${ville.getCodePostal() + ' - ' + ville.getNomCommune()}"></option>
+        </th:block>
+    </select>
+    <select name="ville2">
+        <th:block th:each="ville : ${villes}">
+            <option th:value="${ville.getCodeCommune()}" th:text="${ville.getCodePostal() + ' - ' + ville.getNomCommune()}"></option>
+        </th:block>
+    </select>
+    <input type="submit" value="Submit" />
+</form>
+</p>
+    <th:block th:if="${postMethod == true}">
+        <p th:text="${'La distance est de ' + result + ' km'}"></p>
+    </th:block>
+</body>
+</html>
