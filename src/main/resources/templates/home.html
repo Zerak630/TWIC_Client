@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>JSP - Hello World</title>
+    <title>Home - TWIC</title>
 </head>
 <body>
-    <h1>Bonjour toi je bug</h1>
+    <h1>Bonjour</h1>
+    <a th:href="@{/villes}">Villes</a>
+    <a th:href="@{/distance}">Distance</a>
 </body>
 </html>

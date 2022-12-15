@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
+    <title>Distance - TWIC</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"></head>
 </head>
 <body>
-<h1>Villes Distance</h1>
-<p>
-<form action="distance" method="post">
-    <select name="ville1">
-        <th:block th:each="ville : ${villes}">
-            <option th:value="${ville.getCodeCommune()}" th:text="${ville.getCodePostal() + ' - ' + ville.getNomCommune()}"></option>
-        </th:block>
-    </select>
-    <select name="ville2">
-        <th:block th:each="ville : ${villes}">
-            <option th:value="${ville.getCodeCommune()}" th:text="${ville.getCodePostal() + ' - ' + ville.getNomCommune()}"></option>
-        </th:block>
-    </select>
-    <input type="submit" value="Submit" />
-</form>
-</p>
+    <h1>Distance entre deux villes</h1>
+    <a th:href="@{/villes}">Villes</a>
+    <a th:href="@{/distance}">Distance</a>
+    <p>
+        <form action="distance" method="post">
+            <select name="ville1">
+                <th:block th:each="ville : ${villes}">
+                    <option th:value="${ville.getCodeCommune()}" th:text="${ville.getCodePostal() + ' - ' + ville.getNomCommune()}"></option>
+                </th:block>
+            </select>
+            <select name="ville2">
+                <th:block th:each="ville : ${villes}">
+                    <option th:value="${ville.getCodeCommune()}" th:text="${ville.getCodePostal() + ' - ' + ville.getNomCommune()}"></option>
+                </th:block>
+            </select>
+            <input type="submit" value="Submit" />
+        </form>
+    </p>
     <th:block th:if="${postMethod == true}">
         <p th:text="${'La distance est de ' + result + ' km'}"></p>
     </th:block>
